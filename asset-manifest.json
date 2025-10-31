@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/Portfolio/static/css/main.870e6308.css",
+    "main.js": "/Portfolio/static/js/main.adfb2efc.js",
+    "static/js/453.6264690d.chunk.js": "/Portfolio/static/js/453.6264690d.chunk.js",
+    "static/media/DashboardSS.PNG": "/Portfolio/static/media/DashboardSS.691eeb092e13cbcbfd69.PNG",
+    "static/media/report.PNG": "/Portfolio/static/media/report.54ed2e1caa777e0c441d.PNG",
+    "static/media/react.jpg": "/Portfolio/static/media/react.902e6150da64ed2e31a7.jpg",
+    "static/media/BookingPageSS.PNG": "/Portfolio/static/media/BookingPageSS.cb08418d60ab90fd69b8.PNG",
+    "static/media/LoginPageSS.PNG": "/Portfolio/static/media/LoginPageSS.226e9af4a91c7d4a57cf.PNG",
+    "static/media/ReportSS3.PNG": "/Portfolio/static/media/ReportSS3.04426b279891959d6772.PNG",
+    "static/media/ReportSS2.PNG": "/Portfolio/static/media/ReportSS2.8220ab1e1442954a0d24.PNG",
+    "static/media/person.jpg": "/Portfolio/static/media/person.bb151deed7564efd7c3f.jpg",
+    "static/media/CalendarViewSS.PNG": "/Portfolio/static/media/CalendarViewSS.12c2e9ef652ccd818974.PNG",
+    "static/media/LandingPageSS.PNG": "/Portfolio/static/media/LandingPageSS.98089c16551ace0310cb.PNG",
+    "static/media/contactme.jpg": "/Portfolio/static/media/contactme.13b798d6ec4d62e3e4d2.jpg",
+    "static/media/VS Code.jfif": "/Portfolio/static/media/VS Code.4f267161f3e0a9a4fd96.jfif",
+    "static/media/figma.jfif": "/Portfolio/static/media/figma.4c7340f9a9e56d5d96d1.jfif",
+    "static/media/css3-1.jfif": "/Portfolio/static/media/css3-1.a03c137161625f0f32a6.jfif",
+    "static/media/mongodb.webp": "/Portfolio/static/media/mongodb.de60ad7d5c896abf1a02.webp",
+    "index.html": "/Portfolio/index.html",
+    "main.870e6308.css.map": "/Portfolio/static/css/main.870e6308.css.map",
+    "main.adfb2efc.js.map": "/Portfolio/static/js/main.adfb2efc.js.map",
+    "453.6264690d.chunk.js.map": "/Portfolio/static/js/453.6264690d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.870e6308.css",
+    "static/js/main.adfb2efc.js"
+  ]
+}
