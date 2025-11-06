@@ -1,49 +1,53 @@
-// src/App.jsx
-import { Routes, Route, useLocation } from "react-router-dom";
-import "./App.css";
-import About from "./components/About";
-import Contact from "./components/Contact";
-import Experience from "./components/Experience";
-import Landing from "./components/Landing";
+import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import Projects from "./components/Projects";
-import Skills from "./components/Skills";
-import ProjectDetail1 from "./pages/ProjectDetail1";
-import ProjectDetail2 from "./pages/ProjectDetail2";
-import ProjectDetail3 from "./pages/ProjectDetail3";
-import ProjectDetail4 from "./pages/ProjectDetail4";
+import Footer from "./components/Footer";
+import Home from "./pages/Home";
+import Contact from "./pages/Contact";
+import Address from "./pages/Address";
+import BookingForm from "./pages/BookingForm";
+import ReviewPage from "./components/ReviewPage";
+import ServicesPage from "./components/ServicesPage";
+import States from "./pages/States";
+import StateTours from "./pages/StateTours";
+import TourDetails from "./pages/TourDetails";
+import TrendingTripsPage from "./components/TrendingTripsPage";
+import TrendingTripDetails from "./components/TrendingTripDetails";
+
+import AllDestinations from "./components/AllDestinations";
+import DestinationDetails from "./components/DestinationDetails";
+import SeasonalPlansFull from "./components/SeasonalPlansFull";
+import SeasonalPlanDetails from "./components/SeasonalPlanDetails";
 
 function App() {
-  const location = useLocation();
-  const isProjectDetail = location.pathname.startsWith("/project/");
-
   return (
-    <div className="App">
+    <>
+    <title>Home | Shreeji Holidays</title>
       <Navbar />
-
       <Routes>
-        <Route
-          path="/Portfolio"
-          element={
-            <>
-              <Landing />
-              <About />
-              <Experience />
-              <Skills />
-              <Projects />
-              <Contact />
-            </>
-          }
-        />
-        <Route path="/project" element={<Projects />} />
-        <Route path="/project/it-assets-form" element={<ProjectDetail1 />} />
-        <Route path="/project/room-booking-management" element={<ProjectDetail2 />} />
-        <Route path="/project/gatepass-management" element={<ProjectDetail3 />} />
-        <Route path="/project/spotify-clone" element={<ProjectDetail4 />} />
-      </Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/booking" element={<BookingForm/>} />
+        <Route path="/services" element={<ServicesPage/>} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/address" element={<Address />} />
+        <Route path="/reviews" element={<ReviewPage/>}/> 
 
-      {!isProjectDetail && <footer>© 2025 Mohit.dev</footer>}
-    </div>
+         <Route path="/states" element={<States />} />
+        <Route path="/states/:stateName" element={<StateTours />} />
+        <Route path="/states/:stateName/:tourId" element={<TourDetails />} />
+
+<Route path="/trending-trips" element={<TrendingTripsPage />} />
+<Route path="/trending-trips/:id" element={<TrendingTripDetails />} />
+
+
+        <Route path="/destinations" element={<AllDestinations />} />
+        <Route path="/destinations/:id" element={<DestinationDetails />} />
+
+        <Route path="/seasonal-plans" element={<SeasonalPlansFull />} />
+<Route path="/seasonal-plans/:id" element={<SeasonalPlanDetails />} />
+
+      </Routes>
+      <Footer />
+    </>
   );
 }
 

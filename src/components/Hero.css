@@ -1,0 +1,291 @@
+/* ---------------- General Hero Styles ---------------- */
+.hero-ultra-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-ultra-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+  z-index: -2;
+}
+
+.hero-ultra-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(211, 210, 210, 0.486); /* semi-transparent overlay */
+  z-index: -1;
+}
+
+/* Floating orbs and hero content remain the same */
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Roboto:wght@300;400;500;700&display=swap');
+
+.hero-ultra-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 64px;
+  font-weight: 800;
+  line-height: 1.2;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 15px rgba(0,0,0,0.45);
+}
+
+.hero-ultra-subtitle {
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #080808;
+  text-align: center;
+  margin-bottom: 2rem;
+  text-shadow: 1px 1px 10px rgba(0,0,0,0.3);
+  letter-spacing: 0.5px;
+}
+
+.highlight-text {
+  background: linear-gradient(270deg, #ff6a00, #ffd700, #00d4ff, #ff6a00);
+  background-size: 600% 600%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShift 8s ease infinite;
+  font-weight: 700;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+/* Neon Primary Button */
+.hero-ultra-btn-primary {
+  background: #0d0d0d; /* dark base for neon glow */
+  color: #00f0ff;
+  border: 2px solid #00f0ff;
+  padding: 0.8rem 2rem;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px #00f0ff, 0 0 20px #00f0ff, 0 0 40px #00f0ff50;
+}
+
+.hero-ultra-btn-primary::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, #00f0ff, #ff00ff, #00ff00, #ffff00);
+  filter: blur(40px);
+  opacity: 0.6;
+  transform: rotate(0deg);
+  transition: all 0.5s ease;
+}
+
+.hero-ultra-btn-primary:hover::before {
+  transform: rotate(45deg);
+}
+
+.hero-ultra-btn-primary:hover {
+  color: #fff;
+  box-shadow: 0 0 20px #00f0ff, 0 0 40px #00f0ff, 0 0 60px #00f0ff80;
+  transform: translateY(-3px) scale(1.05);
+}
+
+/* Neon Outline Button */
+.hero-ultra-btn-outline {
+  background: transparent;
+  border: 2px solid #ff00ff;
+  color: #ff00ff;
+  padding: 0.8rem 2rem;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 40px #ff00ff50;
+}
+
+.hero-ultra-btn-outline::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, #ff00ff, #00f0ff, #ffff00, #00ff00);
+  filter: blur(40px);
+  opacity: 0.5;
+  transform: rotate(0deg);
+  transition: all 0.5s ease;
+}
+
+.hero-ultra-btn-outline:hover::before {
+  transform: rotate(45deg);
+}
+
+.hero-ultra-btn-outline:hover {
+  color: #fff;
+  box-shadow: 0 0 20px #ff00ff, 0 0 40px #ff00ff, 0 0 60px #ff00ff80;
+  transform: translateY(-3px) scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .hero-ultra-title { font-size: 48px; }
+  .hero-ultra-subtitle { font-size: 18px; }
+}
+
+@media (max-width: 767px) {
+  .hero-ultra-title { font-size: 36px; }
+  .hero-ultra-subtitle { font-size: 16px; }
+  .hero-ultra-buttons { flex-direction: column; gap: 1rem; }
+}
+
+
+.hero-ultra-orb {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  filter: blur(12px);
+  pointer-events: none;
+  transition: transform 0.1s linear;
+}
+
+/* Different orb sizes */
+.orb-small { width: 50px; height: 50px; }
+.orb-medium { width: 80px; height: 80px; }
+.orb-large { width: 120px; height: 120px; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+/* Hero Content */
+.hero-ultra-content {
+  position: relative;
+  z-index: 5;
+  max-width: 900px;
+  padding: 0 1rem;
+  color: #fff;
+  
+}
+
+/* Hero Title */
+.hero-ultra-title {
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+/* Highlight animated text */
+.highlight-text {
+  background: linear-gradient(270deg, #ffd700, #ff6a00, #00ffff, #ffd700);
+  background-size: 600% 600%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShift 8s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Hero Subtitle */
+.hero-ultra-subtitle {
+  font-size: 1.3rem;
+  font-weight: 400;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+/* Hero Buttons */
+.hero-ultra-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.hero-ultra-btn-primary {
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  background: #007aff;
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(0, 122, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.hero-ultra-btn-primary:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 30px rgba(0, 122, 255, 0.5);
+}
+
+.hero-ultra-btn-outline {
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 10px;
+  border: 2px solid #fff;
+  cursor: pointer;
+  background: transparent;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.hero-ultra-btn-outline:hover {
+  transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* ---------------- Responsive ---------------- */
+/* Mobile (<768px) */
+@media (max-width: 767px) {
+  .hero-ultra-title { font-size: 2rem; }
+  .hero-ultra-subtitle { font-size: 1rem; }
+  .hero-ultra-btn-primary,
+  .hero-ultra-btn-outline { width: 90%; padding: 0.7rem 0; }
+  .hero-ultra-buttons { flex-direction: column; gap: 0.8rem; }
+}
+
+/* Tablet (768px - 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .hero-ultra-title { font-size: 2.5rem; }
+  .hero-ultra-subtitle { font-size: 1.1rem; }
+}
+
+/* Desktop (>1024px) */
+@media (min-width: 1025px) {
+  .hero-ultra-title { font-size: 3rem; }
+  .hero-ultra-subtitle { font-size: 1.3rem; }
+}

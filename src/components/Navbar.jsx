@@ -1,126 +1,106 @@
-// src/components/Navbar.jsx
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import {  useLocation, useNavigate } from "react-router-dom";
 import "./Navbar.css";
 
 export default function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const [visible, setVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
-  const [active, setActive] = useState("home");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
-  const navigate = useNavigate();
+  const currentPath = location.pathname;
 
-  const navLinks = [
-    { id: "home", label: "Home", route: "/Portfolio" },
-    { id: "about", label: "About", route: "/#about" },
-    { id: "experience", label: "Experience", route: "/#experience" },
-    { id: "skills", label: "Skills", route: "/#skills" },
-    { id: "projects", label: "Projects", route: "/#projects" },
-    { id: "contact", label: "Contact", route: "/#contact" },
+  const navItems = [
+    { path: "/", label: "Home" },
+    { path: "/booking", label: "Booking" },
+    { path: "/services", label: "Services" },
+    { path: "/contact", label: "Contact" },
+    { path: "/address", label: "Address" },
+    { path: "/reviews", label: "Review" },
   ];
 
-  // Detect scroll direction + change navbar visibility
-  useEffect(() => {
-    const controlNavbar = () => {
-      setScrolled(window.scrollY > 60);
-      if (window.scrollY > lastScrollY && window.scrollY > 150) setVisible(false);
-      else setVisible(true);
-      setLastScrollY(window.scrollY);
-    };
-    window.addEventListener("scroll", controlNavbar);
-    return () => window.removeEventListener("scroll", controlNavbar);
-  }, [lastScrollY]);
-
-  // Scroll smoothly to section if on home page
-  const handleLinkClick = (link) => {
-    setActive(link.id);
-    setMenuOpen(false);
-
-    if (link.route.startsWith("/#")) {
-      const sectionId = link.route.split("#")[1];
-      const section = document.getElementById(sectionId);
-      if (section) section.scrollIntoView({ behavior: "smooth" });
-      if (location.pathname !== "/Portfolio") navigate("/Portfolio");
-    } else {
-      navigate(link.route);
-    }
+  const linkAnimation = {
+    hidden: { opacity: 0, y: -20 },
+    visible: (i) => ({
+      opacity: 1,
+      y: 0,
+      transition: { delay: i * 0.08, duration: 0.4 },
+    }),
   };
 
-  // Update active link on route change
-  useEffect(() => {
-    const sectionFromHash = location.hash.replace("#", "");
-    if (sectionFromHash) setActive(sectionFromHash);
-    else if (location.pathname === "/Portfolio") setActive("home");
-  }, [location]);
-
   return (
-    <motion.header
-      className={`navbar ${scrolled ? "scrolled" : ""}`}
-      animate={{ y: visible ? 0 : -80 }}
-      transition={{ duration: 0.5, ease: "easeInOut" }}
+    <motion.nav
+      className="navbar-wrapper sticky-navbar"
+      initial={{ y: -50, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.5 }}
     >
       <div className="navbar-container">
-        {/* Logo */}
-        <div className="logo" onClick={() => navigate("/")}>
-          <span className="brand">
-            Mohit<span className="highlight">.dev</span>
-          </span>
+        <Link to="/" className="navbar-logo-unique">
+          Shreeji Holidays
+        </Link>
+
+        {/* Desktop Links */}
+        <div className="navbar-links-desktop">
+          {navItems.map((item, index) => (
+            <motion.div
+              key={item.path}
+              custom={index}
+              variants={linkAnimation}
+              initial="hidden"
+              animate="visible"
+            >
+              <Link
+                to={item.path}
+                className={`navbar-link ${
+                  currentPath === item.path ? "active-link" : ""
+                }`}
+              >
+                {item.label}
+              </Link>
+            </motion.div>
+          ))}
         </div>
 
-        {/* Desktop Nav */}
-        <nav className="nav-links">
-          <ul>
-            {navLinks.map((link) => (
-              <li key={link.id}>
-                <button
-                  className={active === link.id ? "active" : ""}
-                  onClick={() => handleLinkClick(link)}
-                >
-                  {link.label}
-                </button>
-              </li>
-            ))}
-          </ul>
-        </nav>
-
         {/* Mobile Menu Toggle */}
-        <button
-          className="menu-toggle"
-          onClick={() => setMenuOpen((prev) => !prev)}
+        <div
+          className="navbar-toggle-unique"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
-          {menuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-
-        {/* Mobile Dropdown Menu */}
-        <AnimatePresence>
-          {menuOpen && (
-            <motion.div
-              className="mobile-menu"
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.3 }}
-            >
-              <ul>
-                {navLinks.map((link) => (
-                  <li key={link.id}>
-                    <button
-                      className={active === link.id ? "active" : ""}
-                      onClick={() => handleLinkClick(link)}
-                    >
-                      {link.label}
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          )}
-        </AnimatePresence>
+          {isMenuOpen ? <X size={26} /> : <Menu size={26} />}
+        </div>
       </div>
-    </motion.header>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            className="navbar-links-mobile"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+          >
+            {navItems.map((item, index) => (
+              <motion.div
+                key={item.path}
+                custom={index}
+                variants={linkAnimation}
+                initial="hidden"
+                animate="visible"
+              >
+                <Link
+                  to={item.path}
+                  className={`navbar-link ${
+                    currentPath === item.path ? "active-link" : ""
+                  }`}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              </motion.div>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.nav>
   );
 }

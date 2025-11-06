@@ -1,0 +1,165 @@
+/* ============================================
+   ✨ BOOKING PAGE – GOLDEN LUXURY THEME
+   Unique classnames prefixed with bookingPage-
+============================================ */
+
+/* ---------- Main Section ---------- */
+.bookingPage-fullpage {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ffffff;
+  padding: 60px 20px;
+  overflow: hidden;
+  font-family: "Poppins", "Segoe UI", sans-serif;
+}
+
+.bookingPage-bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top right, #fff8e1 0%, #ffffff 60%);
+  z-index: 0;
+}
+
+/* ---------- Container ---------- */
+.bookingPage-container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 900px;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 22px;
+  padding: 50px 40px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+  animation: bookingPage-fadeIn 0.8s ease-in-out;
+}
+
+.bookingPage-container h2 {
+  font-size: 2.5rem;
+  color: #b8860b;
+  font-weight: 700;
+  margin-bottom: 10px;
+  letter-spacing: 0.5px;
+}
+
+.bookingPage-highlight {
+  color: #daa520;
+}
+
+.bookingPage-container p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 35px;
+  
+}
+
+/* ---------- Form ---------- */
+.bookingPage-form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.bookingPage-row {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+@media (min-width: 768px) {
+  .bookingPage-row {
+    flex-direction: row;
+  }
+
+  .bookingPage-row .bookingPage-group {
+    flex: 1;
+  }
+}
+
+/* ---------- Input Fields ---------- */
+.bookingPage-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  gap: 8px;
+}
+
+.bookingPage-group label {
+  color: #b8860b;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.bookingPage-group input,
+.bookingPage-group select,
+.bookingPage-group textarea {
+  width: 100%;
+  border: 2px solid #b8860b;
+  border-radius: 10px;
+  padding: 12px 15px;
+  font-size: 1rem;
+  background-color: #fffdf6;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.bookingPage-group input:focus,
+.bookingPage-group select:focus,
+.bookingPage-group textarea:focus {
+  border-color: #daa520;
+  box-shadow: 0 0 10px rgba(218, 165, 32, 0.3);
+}
+
+/* ---------- Submit Button ---------- */
+.bookingPage-btn {
+  background: linear-gradient(90deg, #b8860b, #daa520);
+  color: #fff;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  margin-top: 10px;
+  align-self: center;
+}
+
+.bookingPage-btn:hover {
+  background: linear-gradient(90deg, #daa520, #b8860b);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(218, 165, 32, 0.45);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .bookingPage-container {
+    padding: 35px 25px;
+  }
+
+  .bookingPage-container h2 {
+    font-size: 2rem;
+  }
+
+  .bookingPage-container p {
+    font-size: 1rem;
+  }
+}
+
+/* ---------- Animation ---------- */
+@keyframes bookingPage-fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

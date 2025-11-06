@@ -1,0 +1,139 @@
+/* ===========================
+   STATES PAGE DESIGN
+   =========================== */
+
+.states-section {
+  min-height: 100vh;
+  padding: 5rem 2rem;
+  background: linear-gradient(to bottom, #f0f6ff, #e4e8ff);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Header */
+.states-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.states-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #1e1e1e;
+  margin-bottom: 1rem;
+}
+
+.states-subtitle {
+  color: #555;
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Grid Layout */
+.states-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  width: 100%;
+  max-width: 1200px;
+}
+
+@media (min-width: 640px) {
+  .states-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .states-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Card */
+.state-card {
+  display: block;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: all 0.4s ease;
+  text-decoration: none;
+  color: inherit;
+}
+
+.state-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Image */
+.state-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 230px;
+  overflow: hidden;
+}
+
+.state-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.state-card:hover .state-image {
+  transform: scale(1.1);
+}
+
+/* Overlay & Text */
+.state-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.state-card:hover .state-overlay {
+  opacity: 0.9;
+}
+
+.state-name {
+  position: absolute;
+  bottom: 16px;
+  left: 20px;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Content */
+.state-content {
+  padding: 1.5rem;
+}
+
+.state-description {
+  color: #444;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Responsive Padding */
+@media (max-width: 480px) {
+  .states-section {
+    padding: 3rem 1rem;
+  }
+
+  .states-title {
+    font-size: 2rem;
+  }
+
+  .state-name {
+    font-size: 1.3rem;
+  }
+}

@@ -1,0 +1,215 @@
+/* ===========================================
+   🗺️ STATE TOURS PAGE STYLING
+   File: StateTours.css
+   Scope: .state-tours-*
+=========================================== */
+
+.state-tours-section {
+  min-height: 100vh;
+  padding: 80px 20px;
+  background: linear-gradient(180deg, #f7faff 0%, #ffffff 100%);
+  font-family: "Poppins", sans-serif;
+  color: #222;
+}
+
+/* ===========================
+   🏔️ HEADER
+=========================== */
+.state-tours-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 60px;
+  padding: 0 15px;
+}
+
+.state-tours-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #0078ff;
+  letter-spacing: -0.5px;
+  margin-bottom: 12px;
+}
+
+.state-tours-subtitle {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* ===========================
+   🧳 TOURS GRID
+=========================== */
+.state-tours-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 28px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+/* ===========================
+   🎴 TOUR CARD
+=========================== */
+.tour-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  background: #fff;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
+  transition: all 0.35s ease;
+}
+
+.tour-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(0, 120, 255, 0.15);
+}
+
+/* ===========================
+   🖼️ IMAGE WRAPPER
+=========================== */
+.tour-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+}
+
+.tour-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.tour-card:hover .tour-image {
+  transform: scale(1.1);
+}
+
+.tour-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.2) 10%,
+    rgba(0, 0, 0, 0.65) 100%
+  );
+  z-index: 1;
+}
+
+.tour-name {
+  position: absolute;
+  bottom: 14px;
+  left: 20px;
+  z-index: 2;
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* ===========================
+   📋 CONTENT AREA
+=========================== */
+.tour-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 18px 16px;
+  border-top: 1px solid rgba(0, 120, 255, 0.1);
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(8px);
+}
+
+.tour-duration {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.tour-price {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #0078ff;
+}
+
+/* ===========================
+   🚫 STATE NOT FOUND
+=========================== */
+.state-not-found {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+  flex-direction: column;
+  color: #555;
+  text-align: center;
+}
+
+.state-not-found h1 {
+  font-size: 2rem;
+  color: #999;
+}
+
+/* ===========================
+   📱 RESPONSIVE DESIGN
+=========================== */
+@media (max-width: 1024px) {
+  .state-tours-title {
+    font-size: 2.3rem;
+  }
+
+  .tour-name {
+    font-size: 1.2rem;
+  }
+
+  .tour-content {
+    padding: 12px 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .state-tours-section {
+    padding: 60px 15px;
+  }
+
+  .state-tours-title {
+    font-size: 2rem;
+  }
+
+  .state-tours-subtitle {
+    font-size: 1rem;
+  }
+
+  .tour-image-wrapper {
+    height: 210px;
+  }
+}
+
+@media (max-width: 480px) {
+  .state-tours-title {
+    font-size: 1.7rem;
+  }
+
+  .tour-name {
+    font-size: 1.1rem;
+  }
+
+  .tour-image-wrapper {
+    height: 190px;
+  }
+
+  .tour-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .tour-price {
+    font-size: 1rem;
+  }
+}
+ 

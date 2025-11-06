@@ -1,0 +1,92 @@
+.contact-container {
+  background-color: #ffffff; /* White background */
+  color: #333333;
+  max-width: 800px;
+  margin: 60px auto;
+  padding: 40px 35px;
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.contact-container h2 {
+  color: #b8860b; /* Golden heading */
+  font-size: 2.4rem;
+  margin-bottom: 10px;
+}
+
+.contact-subtitle {
+  font-size: 1.1rem;
+  color: #555555;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* Name & Email side by side on desktop */
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+@media (min-width: 768px) {
+  .form-row {
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  .form-row input {
+    flex: 1;
+  }
+  
+
+}
+
+.contact-container input,
+.contact-container textarea {
+  padding: 15px 18px;
+  border: 2px solid #b8860b;
+  border-radius: 12px;
+  font-size: 1rem;
+  outline: none;
+  transition: 0.3s;
+  color: black;
+}
+
+.contact-container input:focus,
+.contact-container textarea:focus {
+  border-color: #daa520;
+  box-shadow: 0 0 10px rgba(218, 165, 32, 0.3);
+}
+
+.contact-container textarea {
+  resize: vertical;
+  min-height: 140px;
+   max-width: 760px;
+}
+
+.contact-container button {
+  padding: 15px 25px;
+  background: linear-gradient(90deg, #b8860b, #daa520);
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.contact-container button:hover {
+  background: linear-gradient(90deg, #daa520, #b8860b);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(218, 165, 32, 0.4);
+}

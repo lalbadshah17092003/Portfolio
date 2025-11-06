@@ -1,0 +1,337 @@
+/* ===================================================================
+TopDestinations.css
+White–Gold Minimal Glass Theme (Marquee + Grid + Details)
+=================================================================== */
+
+
+/* ------------------ Global Styles ------------------ */
+
+/* ------------------ Section Container ------------------ */
+.tds-section {
+padding: 72px var(--container-padding);
+max-width: var(--max-width);
+margin: 0 auto;
+position: relative;
+z-index: 1;
+--bg: #fbfcfd;
+--surface: rgba(255, 255, 255, 0.68);
+--border: rgba(255, 255, 255, 0.85);
+--glass-shadow: 0 10px 30px rgba(20, 20, 30, 0.06);
+--accent-gold: linear-gradient(90deg, #d4af37, #f0dca1);
+--accent-solid: #d4af37;
+--muted: #6b7280;
+--text: #111827;
+--radius: 16px;
+--container-padding: 6%;
+--max-width: 1200px;
+--glass-blur: blur(14px);
+
+}
+
+/* ------------------ Header ------------------ */
+.tds-header {
+display: flex;
+align-items: flex-end;
+justify-content: space-between;
+flex-wrap: wrap;
+gap: 20px;
+margin-bottom: 36px;
+}
+
+.tds-heading h2 {
+margin: 0;
+font-size: clamp(1.6rem, 2.3vw, 2.4rem);
+font-weight: 700;
+letter-spacing: -0.3px;
+}
+
+.tds-lead {
+margin: 8px 0 0;
+color: var(--muted);
+font-size: clamp(0.95rem, 1vw, 1rem);
+max-width: 68ch;
+}
+
+.tds-accent {
+background: var(--accent-gold);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+}
+
+/* ------------------ Buttons ------------------ */
+.tds-cta {
+background: var(--accent-gold);
+color: #fff;
+padding: 10px 22px;
+border-radius: 999px;
+text-decoration: none;
+font-weight: 600;
+box-shadow: 0 8px 26px rgba(212, 175, 55, 0.15);
+transition: all 0.25s ease;
+display: inline-flex;
+align-items: center;
+gap: 8px;
+}
+
+.tds-cta:hover {
+transform: translateY(-4px);
+box-shadow: 0 12px 30px rgba(212, 175, 55, 0.25);
+}
+
+.tds-cta.subtle {
+background: rgba(255, 255, 255, 0.9);
+color: var(--text);
+border: 1px solid rgba(0, 0, 0, 0.05);
+box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+}
+
+/* ------------------ Card Shared ------------------ */
+.tds-card {
+background: var(--surface);
+border-radius: var(--radius);
+overflow: hidden;
+border: 1px solid var(--border);
+box-shadow: var(--glass-shadow);
+transition: transform 0.35s ease, box-shadow 0.35s ease;
+min-width: 240px;
+display: flex;
+flex-direction: column;
+position: relative;
+backdrop-filter: var(--glass-blur);
+}
+
+.tds-card:hover {
+transform: translateY(-8px);
+box-shadow: 0 20px 50px rgba(20, 20, 30, 0.08);
+}
+
+.tds-card-link {
+color: inherit;
+text-decoration: none;
+display: block;
+height: 100%;
+}
+
+/* Image Box */
+.tds-imgbox {
+width: 100%;
+height: 200px;
+overflow: hidden;
+background: linear-gradient(180deg, #fff, #faf7ee);
+}
+
+.tds-imgbox img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+display: block;
+transition: transform 0.6s ease;
+}
+
+.tds-card:hover .tds-imgbox img {
+transform: scale(1.05);
+}
+
+/* Info */
+.tds-info {
+padding: 16px 18px 20px;
+display: flex;
+flex-direction: column;
+gap: 8px;
+flex: 1;
+}
+
+.tds-name {
+margin: 0;
+font-size: 1.05rem;
+font-weight: 600;
+color: var(--text);
+}
+
+.tds-desc {
+margin: 0;
+color: var(--muted);
+font-size: 0.95rem;
+line-height: 1.5;
+overflow: hidden;
+text-overflow: ellipsis;
+display: -webkit-box;
+-webkit-line-clamp: 3;
+-webkit-box-orient: vertical;
+}
+
+/* ------------------ Marquee ------------------ */
+.tds-marquee {
+width: 100%;
+overflow: hidden;
+margin-top: 12px;
+position: relative;
+padding: 8px 0;
+}
+
+.tds-marquee-track {
+display: flex;
+gap: 22px;
+align-items: stretch;
+animation: marquee var(--marquee-duration, 28s) linear infinite;
+will-change: transform;
+}
+
+@keyframes marquee {
+0% {
+transform: translateX(0);
+}
+100% {
+transform: translateX(-50%);
+}
+}
+
+/* Pause on hover */
+.tds-marquee:hover .tds-marquee-track,
+.tds-marquee:focus-within .tds-marquee-track {
+animation-play-state: paused;
+cursor: grab;
+}
+
+/* ------------------ Grid Layout ------------------ */
+.tds-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+gap: 24px;
+margin-top: 10px;
+}
+
+.tds-grid-card {
+display: flex;
+flex-direction: column;
+height: 100%;
+}
+
+/* ------------------ Details Page ------------------ */
+.tds-details {
+display: flex;
+gap: 40px;
+align-items: flex-start;
+margin-top: 28px;
+flex-wrap: wrap;
+}
+
+.tds-details-media {
+flex: 1 1 48%;
+min-height: 240px;
+border-radius: var(--radius);
+overflow: hidden;
+box-shadow: 0 18px 44px rgba(20, 20, 30, 0.06);
+}
+
+.tds-details-media img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+display: block;
+}
+
+.tds-details-body {
+flex: 1 1 48%;
+min-width: 260px;
+}
+
+.tds-detail-title {
+margin: 0 0 10px;
+font-size: 1.25rem;
+font-weight: 700;
+}
+
+.tds-paragraph {
+margin: 0 0 18px;
+color: var(--muted);
+line-height: 1.75;
+}
+
+.tds-extras {
+display: flex;
+gap: 20px;
+flex-wrap: wrap;
+margin-top: 16px;
+}
+
+.tds-extra {
+background: rgba(255, 255, 255, 0.6);
+border-radius: 12px;
+padding: 12px 14px;
+border: 1px solid rgba(0, 0, 0, 0.04);
+min-width: 160px;
+}
+
+.tds-extra h4 {
+margin: 0 0 6px;
+font-size: 0.95rem;
+font-weight: 600;
+}
+
+.tds-extra p {
+margin: 0;
+color: var(--muted);
+font-size: 0.95rem;
+}
+
+/* ------------------ Responsive ------------------ */
+@media (max-width: 1100px) {
+.tds-section {
+padding: 56px 5%;
+}
+.tds-details {
+gap: 28px;
+}
+}
+
+@media (max-width: 800px) {
+.tds-header {
+align-items: flex-start;
+}
+.tds-card {
+min-width: 220px;
+}
+.tds-imgbox {
+height: 170px;
+}
+.tds-details {
+flex-direction: column;
+}
+.tds-details-media,
+.tds-details-body {
+flex: 1 1 100%;
+}
+.tds-cta {
+padding: 10px 16px;
+}
+}
+
+@media (max-width: 480px) {
+.tds-section {
+padding: 40px 4%;
+}
+.tds-card {
+min-width: 180px;
+}
+.tds-imgbox {
+height: 140px;
+}
+.tds-heading h2 {
+font-size: 1.3rem;
+}
+.tds-lead {
+font-size: 0.95rem;
+}
+.tds-cta {
+padding: 9px 14px;
+font-size: 0.95rem;
+}
+}
+
+/* ------------------ Accessibility ------------------ */
+.tds-card:focus-within {
+outline: 3px solid rgba(212, 175, 55, 0.12);
+outline-offset: 4px;
+}

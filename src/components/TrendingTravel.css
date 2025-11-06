@@ -1,0 +1,256 @@
+/* ===============================
+   TRENDING TRAVEL – White-Gold Glassmorphism
+=============================== */
+
+.tts-section {
+  padding: 80px 60px;
+  font-family: "Plus Jakarta Sans", "Poppins", sans-serif;
+  background: radial-gradient(circle at 20% 20%, #ffffff 0%, #f7f8fa 100%);
+  overflow: hidden;
+  position: relative;
+}
+
+/* Header */
+.tts-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.tts-header h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 10px;
+  letter-spacing: -0.5px;
+}
+
+.tts-gradient-text {
+  background: linear-gradient(90deg, #d4af37, #f5d37b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.tts-header p {
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* View All Button */
+.tts-view-all {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.tts-view-all-btn {
+  padding: 10px 26px;
+  background: linear-gradient(90deg, #f7d47c, #d4af37);
+  border-radius: 40px;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+  transition: all 0.3s ease;
+}
+
+.tts-view-all-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(212, 175, 55, 0.4);
+}
+
+/* Marquee */
+.tts-marquee {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.tts-track {
+  display: inline-flex;
+  gap: 24px;
+  animation: tts-scroll 40s linear infinite;
+  will-change: transform;
+}
+
+@keyframes tts-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Card */
+.tts-card {
+  flex: 0 0 300px;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 20px;
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: all 0.4s ease;
+  position: relative;
+}
+
+.tts-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 10px 28px rgba(212, 175, 55, 0.25);
+}
+
+/* Image */
+.tts-imgbox {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  position: relative;
+}
+
+.tts-imgbox img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.tts-card:hover .tts-imgbox img {
+  transform: scale(1.08);
+}
+
+.tts-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: linear-gradient(90deg, #ff8a00, #ff2d55);
+  color: #fff;
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+/* Content */
+.tts-content {
+  padding: 18px;
+}
+
+.tts-content h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #111;
+  margin-bottom: 6px;
+}
+
+.tts-content p {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.6;
+  height: 42px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Info */
+.tts-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.tts-rating span {
+  margin-left: 4px;
+  color: #111;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.tts-duration {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.85rem;
+  color: #007aff;
+}
+
+/* Footer */
+.tts-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.tts-price {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.95rem;
+}
+
+.tts-current {
+  font-weight: 600;
+  color: #111;
+}
+
+.tts-old {
+  text-decoration: line-through;
+  font-size: 0.8rem;
+  color: #888;
+}
+
+.tts-btn {
+  background: linear-gradient(90deg, #d4af37, #f5d37b);
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.3s ease;
+}
+
+.tts-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.35);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .tts-section {
+    padding: 60px 30px;
+  }
+
+  .tts-header h2 {
+    font-size: 2.1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .tts-card {
+    flex: 0 0 260px;
+  }
+  .tts-header p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .tts-section {
+    padding: 40px 20px;
+  }
+
+  .tts-header h2 {
+    font-size: 1.7rem;
+  }
+
+  .tts-card {
+    flex: 0 0 220px;
+  }
+
+  .tts-content h3 {
+    font-size: 1rem;
+  }
+}
